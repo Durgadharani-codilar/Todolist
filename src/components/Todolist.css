@@ -27,17 +27,16 @@
     background-color: darkslategrey;
 }
 .input input::placeholder{
-    padding-left: 10%;
+    padding-left: 7%;
 }
 .input input[type="text"]{
-    font-size: 1.5em;
+    font-size: 1.0em;
 }
 .input button{
     font-size: 33px;
     color: black;
     margin-left: 10px;
-    width: 40px;
-    
+    width: 40px;    
 }
 ol li span{
     padding-left: 4%;
@@ -48,75 +47,45 @@ ol li span{
     background-color: transparent;
     border-radius: 50%;
     vertical-align: middle;
-    border: 1px solid #ddd;
-    appearance: none;
-    -webkit-appearance: none;
+    border: 1px solid #eee;
     outline: none;
     cursor: pointer;
-
 }
-.check:checked{
-    background: linear-gradient(
-        160deg, #ff6a6a 0%, #59abff 23%, #c641fc 98%);
-}
-
 .entry{
  display: grid;
  place-content: center;
- 
  height:40%;
- 
- 
-    
 }
 .entry ol li{
     width: 400px;
-    
-padding:10px 10px;
-border-bottom: 2px solid #cacde8;
-background-color: #25273c;
-   
-
+    padding:10px 10px;
+    border-bottom: 2px solid #cacde8;
+    background-color: #25273c;
 }
-
 .list input{
     margin-right: 5%;
 }
 .parent h1 span{
-    /* padding-left: 10%; */
     float: right;
 }
 .function{
    position: absolute;
-    background-color:#25273c ;
+   background-color:#25273c ;
    font-size:larger;
    margin-top: 2%;
    width: 28%;
-   
-   left: 36%;
-   
-   
-  
-   
+   left: 36%;  
 }
 .function span{
     padding-left: 16%;
     cursor: pointer;
 }
-
 input:checked + li{
     text-decoration: line-through;
   }
-
   ol li .right{
       float: right;
   }
-
-
-
-
-
-
 @media only screen and (max-width:700px) and (min-width:200px) {
     .input input{
         width: 200px;
@@ -125,9 +94,7 @@ input:checked + li{
 .input button{
     font-size: 25px;
 }
-.input input[type="text"]{
-    font-size: 1em;
-}
+
 .input button{
     font-size: 20px;
 }
@@ -147,9 +114,7 @@ input:checked + li{
         width: 100px;
         height: 20px;
 }
-.input input[type="text"]{
-    font-size: 1em;
-}
+
 .input button{
     width: 15px;
 }
