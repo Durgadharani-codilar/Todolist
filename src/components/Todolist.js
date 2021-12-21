@@ -8,15 +8,12 @@ const getLocalItems = () => {
         return [];
     }
 }
-
 function Todolist() {
-
     const [inputList, setinputList] = useState();
     const [items, setItems] = useState(getLocalItems());
-    const [status, setStatus] = useState('All');
-    const [filterTodos, setFilterTodos] = useState([]);
+    const [status,setStatus]=useState('All');
+    const [filterTodos,setFilterTodos]=useState([]);
     console.log(items);
-
     document.body.style.background = "black";
     const theme = () => {
         var image = document.getElementById('change1');
@@ -26,14 +23,13 @@ function Todolist() {
         else {
             image.src = "images/icon-sun.svg";
         }
-        var image1 = document.getElementById('change2');
-        if (image1.src.match("images/bg-desktop-dark.jpg")) {
-            image1.src = "images/bg-desktop-light.jpg";
+        var imagee = document.getElementById('change2');
+        if (imagee.src.match("images/bg-desktop-dark.jpg")) {
+            imagee.src = "images/bg-desktop-light.jpg";
         }
         else {
-            image1.src = "images/bg-desktop-dark.jpg";
+            imagee.src = "images/bg-desktop-dark.jpg";
         }
-
         if (document.body.style.background === "black") {
             document.body.style.background = "white";
         }
@@ -45,68 +41,61 @@ function Todolist() {
         setinputList(event.target.value);
     }
     const addList = () => {
-        setItems([...items, { text: inputList, completed: false, id: new Date().getTime() }]);
+        setItems([...items,{text:inputList,completed : false ,id:new Date().getTime()}]);
     }
-
     useEffect(() => {
         localStorage.setItem('list', JSON.stringify(items))
         filterHandler();
-    }, [items, status])
-
+    }, [items,status])
     const checkBox = (ind) => {
-        const newId = items.map((element) => {
-            if (element.id === ind) {
-                return { ...element, completed: !element.completed };
-            }
-            else {
-                return element;
-            }
-        })
-        setItems(newId);
+      const newId =items.map((el) => {
+          if(el.id === ind){
+              return {...el, completed :!el.completed};
+          }
+          else{
+                return el;
+          }
+      })
+      setItems(newId);
     }
-
-    const deleted = (id) => {
-        const updatedItems = items.filter((elem, ind) => {
+    const deletee = (id) => {
+        const updatedItems=items.filter((elem,ind)=>{
             return ind !== id;
-
         });
-        console.log('hi');
-        console.log(id);
-        setItems(updatedItems);
+            console.log('hi');
+            console.log(id);
+            setItems(updatedItems);
     }
-    const setHandeler = (e) => {
+    const setHandeler = (e) =>{
         setStatus(e.target.textContent);
     }
-    const filterHandler = () => {
-        switch (status) {
-            case 'Completed':
-                setFilterTodos(items.filter(element => element.completed === true));
+    const filterHandler = () =>{
+        switch(status){
+            case 'Completed' :
+                setFilterTodos(items.filter(el => el.completed === true));
                 break;
-            case 'Active':
-                setFilterTodos(items.filter(element => element.completed === false));
+            case 'Active' :
+                setFilterTodos(items.filter(el => el.completed === false));
                 break;
             default:
                 setFilterTodos(items);
-        }
     }
-
+    }
     return (
         <>
             <div className='image'>
-                <img src="images/bg-desktop-dark.jpg" id="change2" alt="" />
+                <img src="images/bg-background-dark.jpg" id="change2" alt="" />
             </div>
             <div className="parent">
                 <h1>
-                    TODO <span id='light' onClick={theme}>
-                    <img src="images/icon-sun.svg" id="change1" alt="" />
+                    TODO <span id='light' onClick={theme}
+                    ><img src="images/icon-sun.svg" id="change1" alt="" />
                     </span>
                 </h1>
-                <form onSubmit= {addList}>
-                 <div className="input">
-                    <input type="text" placeholder='Create a new todo...' onChange={itemEvents} id='text' />
-                   
-                </div>,                                                      
-                </form>
+                <div className="input">
+                    <input type="text" placeh a new placeholder='Create a new todo...' onChange={itemEvents}  id='noo'/>
+                    <button onClick={addList}>+</button>
+                </div>
 
             </div>
             <div className="entry">
@@ -114,13 +103,13 @@ function Todolist() {
 
                     {filterTodos.map((itemVal, ind) => {
                         return <li key={ind} className='list-item'>
-                            <input type="checkbox" className='check' value="" id="check"
-                                checked={itemVal.completed} onClick={() => checkBox(itemVal.id)} />
-
-
-                            <span style={itemVal.completed ? { textDecoration: "line-through" } : null}>{itemVal.text}</span>
-                            <img src="images/icon-cross.svg" className='right' onClick={() => deleted(ind)} alt="" />
-                        </li>
+                            <input  type="checkbox" className='check' value=""  id="check"  
+                            checked={itemVal.completed} onClick={() => checkBox(itemVal.id)} /> 
+                           
+                          
+                            <span style={itemVal.completed?{textDecoration:"line-through"}:null}>{itemVal.text}</span>
+                            <img src="images/icon-cross.svg" onClick={()=>deletee(ind)} alt="" />
+                        </li> 
                     })}
                 </ol>
 
