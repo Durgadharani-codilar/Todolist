@@ -3,8 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     color: white;
-    overflow-x: hidden;
-    
+    overflow-x: hidden;    
 }
 .image img{
     width: 100%;
@@ -36,31 +35,18 @@
     font-size: 33px;
     color: black;
     margin-left: 10px;
-    width: 40px;    
-}
-ol li span{
-    padding-left: 4%;
-}
-.check{
-    width: 1.3em;
-    height: 1.3em;
-    background-color: transparent;
-    border-radius: 50%;
-    vertical-align: middle;
-    border: 1px solid #eee;
-    outline: none;
-    cursor: pointer;
+    width: 40px;
 }
 .entry{
  display: grid;
  place-content: center;
- height:40%;
+ height:40%;    
 }
 .entry ol li{
-    width: 400px;
-    padding:10px 10px;
-    border-bottom: 2px solid #cacde8;
-    background-color: #25273c;
+    width: 400px;   
+padding:10px 10px;
+border-bottom: 2px solid #cacde8;
+background-color: #25273c;
 }
 .list input{
     margin-right: 5%;
@@ -70,11 +56,11 @@ ol li span{
 }
 .function{
    position: absolute;
-   background-color:#25273c ;
+    background-color:#25273c ;
    font-size:larger;
    margin-top: 2%;
    width: 28%;
-   left: 36%;  
+   left: 36%;   
 }
 .function span{
     padding-left: 16%;
@@ -83,7 +69,7 @@ ol li span{
 input:checked + li{
     text-decoration: line-through;
   }
-  ol li .right{
+  ol li span{
       float: right;
   }
 @media only screen and (max-width:700px) and (min-width:200px) {
