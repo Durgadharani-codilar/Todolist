@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './Todolist.css';
-
-
-
 const getLocalItems = () => {
     let lists = localStorage.getItem('list');
     if (lists) {
@@ -21,9 +18,6 @@ function Todolist() {
     console.log(items);
 
     document.body.style.background = "black";
-
-
-
     const theme = () => {
         var image = document.getElementById('change1');
         if (image.src.match("images/icon-sun.svg")) {
@@ -32,14 +26,12 @@ function Todolist() {
         else {
             image.src = "images/icon-sun.svg";
         }
-
-
-        var imagee = document.getElementById('change2');
-        if (imagee.src.match("images/bg-desktop-dark.jpg")) {
-            imagee.src = "images/bg-desktop-light.jpg";
+        var image1 = document.getElementById('change2');
+        if (image1.src.match("images/bg-desktop-dark.jpg")) {
+            image1.src = "images/bg-desktop-light.jpg";
         }
         else {
-            imagee.src = "images/bg-desktop-dark.jpg";
+            image1.src = "images/bg-desktop-dark.jpg";
         }
 
         if (document.body.style.background === "black") {
@@ -49,15 +41,10 @@ function Todolist() {
             document.body.style.background = "black";
         }
     }
-
-
     const itemEvents = (event) => {
         setinputList(event.target.value);
     }
     const addList = () => {
-        // setItems((oldItems) => {
-        //     return [...oldItems,{}]
-        // })
         setItems([...items, { text: inputList, completed: false, id: new Date().getTime() }]);
     }
 
@@ -67,43 +54,36 @@ function Todolist() {
     }, [items, status])
 
     const checkBox = (ind) => {
-        const newId = items.map((el) => {
-            if (el.id === ind) {
-                return { ...el, completed: !el.completed };
+        const newId = items.map((element) => {
+            if (element.id === ind) {
+                return { ...element, completed: !element.completed };
             }
             else {
-                return el;
+                return element;
             }
         })
         setItems(newId);
     }
 
-    const deletee = (id) => {
-
-
-
+    const deleted = (id) => {
         const updatedItems = items.filter((elem, ind) => {
             return ind !== id;
 
         });
-        console.log('hai');
+        console.log('hi');
         console.log(id);
-
         setItems(updatedItems);
-
     }
-
     const setHandeler = (e) => {
         setStatus(e.target.textContent);
     }
-
     const filterHandler = () => {
         switch (status) {
             case 'Completed':
-                setFilterTodos(items.filter(el => el.completed === true));
+                setFilterTodos(items.filter(element => element.completed === true));
                 break;
             case 'Active':
-                setFilterTodos(items.filter(el => el.completed === false));
+                setFilterTodos(items.filter(element => element.completed === false));
                 break;
             default:
                 setFilterTodos(items);
@@ -123,7 +103,7 @@ function Todolist() {
                 </h1>
                 <form onSubmit= {addList}>
                  <div className="input">
-                    <input type="text" placeh a new placeholder='Create a new todo...' onChange={itemEvents} id='noo' />
+                    <input type="text" placeholder='Create a new todo...' onChange={itemEvents} id='text' />
                    
                 </div>,                                                      
                 </form>
@@ -139,7 +119,7 @@ function Todolist() {
 
 
                             <span style={itemVal.completed ? { textDecoration: "line-through" } : null}>{itemVal.text}</span>
-                            <img src="images/icon-cross.svg" className='right' onClick={() => deletee(ind)} alt="" />
+                            <img src="images/icon-cross.svg" className='right' onClick={() => deleted(ind)} alt="" />
                         </li>
                     })}
                 </ol>
