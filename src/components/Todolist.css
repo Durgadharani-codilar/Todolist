@@ -3,7 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     color: white;
-    overflow-x: hidden;    
+    overflow-x: hidden;   
 }
 .image img{
     width: 100%;
@@ -43,10 +43,10 @@
  height:40%;    
 }
 .entry ol li{
-    width: 400px;   
-padding:10px 10px;
-border-bottom: 2px solid #cacde8;
-background-color: #25273c;
+    width: 400px;
+    padding:10px 10px;
+    border-bottom: 2px solid #cacde8;
+    background-color: #25273c;
 }
 .list input{
     margin-right: 5%;
@@ -56,7 +56,7 @@ background-color: #25273c;
 }
 .function{
    position: absolute;
-    background-color:#25273c ;
+   background-color:#25273c ;
    font-size:larger;
    margin-top: 2%;
    width: 28%;
@@ -72,6 +72,7 @@ input:checked + li{
   ol li span{
       float: right;
   }
+
 @media only screen and (max-width:700px) and (min-width:200px) {
     .input input{
         width: 200px;
@@ -80,7 +81,6 @@ input:checked + li{
 .input button{
     font-size: 25px;
 }
-
 .input button{
     font-size: 20px;
 }
@@ -100,7 +100,6 @@ input:checked + li{
         width: 100px;
         height: 20px;
 }
-
 .input button{
     width: 15px;
 }
